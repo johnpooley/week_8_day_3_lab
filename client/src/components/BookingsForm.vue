@@ -3,11 +3,11 @@
     <h2>Add new booking:</h2>
     <div class="formWrap">
       <label for="name">Name:</label>
-      <input type="text" id="name" v-model="name"/>
+      <input type="text" id="name" v-model="name" required/>
     </div>
     <div class="formWrap">
       <label for="email">email:</label>
-      <input type="text" id="email" v-model="email"/>
+      <input type="text" id="email" v-model="email" required/>
     </div>
     <div class="formWrap">
       <select id="booked_in" name="booked_in" v-model="booked_in">
@@ -47,6 +47,8 @@ export default {
       .then(booking => {
         eventBus.$emit('booking-added', booking);
       });
+
+      document.getElementById("bookings-form").reset();
     }
   }
 }
